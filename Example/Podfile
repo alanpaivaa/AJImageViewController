@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'AJImageViewController_Example', :exclusive => true do
+  pod "AJImageViewController", :path => "../"
+end
+
+target 'AJImageViewController_Tests', :exclusive => true do
+  pod "AJImageViewController", :path => "../"
+
+  
+end
