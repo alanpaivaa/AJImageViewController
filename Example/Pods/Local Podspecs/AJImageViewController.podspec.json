@@ -1,0 +1,25 @@
+{
+  "name": "AJImageViewController",
+  "version": "0.1.0",
+  "summary": "AJImageViewController is a custom UIViewController for displaying images.",
+  "description": "AJImageViewController is a custom UIViewController that displays images in two modes: the first show a single image, which is perfect for profile pictures, for example. The second one shows a set of images with features like zooming, what is great for photo albuns.",
+  "homepage": "https://github.com/ajeferson/AJImageViewController",
+  "license": "MIT",
+  "authors": {
+    "Alan Jeferson": "alan.jeferson11@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/ajeferson/AJImageViewController.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "AJImageViewController": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

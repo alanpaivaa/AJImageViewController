@@ -1,0 +1,6 @@
+framework module Pods_AJImageViewController_Example {
+  umbrella header "Pods-AJImageViewController_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

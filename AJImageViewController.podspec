@@ -1,30 +1,12 @@
-#
-# Be sure to run `pod lib lint AJImageViewController.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "AJImageViewController"
   s.version          = "0.1.0"
-  s.summary          = "A short description of AJImageViewController."
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
-  s.description      = <<-DESC
-                       DESC
-
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/AJImageViewController"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.summary          = "AJImageViewController is a custom UIViewController for displaying images."
+  s.description      = "AJImageViewController is a custom UIViewController that displays images in two modes: the first show a single image, which is perfect for profile pictures, for example. The second one shows a set of images with features like zooming, what is great for photo albuns."
+  s.homepage         = "https://github.com/ajeferson/AJImageViewController"
   s.license          = 'MIT'
   s.author           = { "Alan Jeferson" => "alan.jeferson11@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/AJImageViewController.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/ajeferson/AJImageViewController.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
@@ -33,8 +15,4 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'AJImageViewController' => ['Pod/Assets/*.png']
   }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

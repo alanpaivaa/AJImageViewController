@@ -1,0 +1,14 @@
+PODS:
+  - AJImageViewController (0.1.0)
+
+DEPENDENCIES:
+  - AJImageViewController (from `../`)
+
+EXTERNAL SOURCES:
+  AJImageViewController:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AJImageViewController: f74fe2a47b973a60e37d11b22b874f6ca596fb1f
+
+COCOAPODS: 0.38.2

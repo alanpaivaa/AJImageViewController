@@ -1,0 +1,782 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0241C5F7641EB5BAFE3C0EF301DB9EA5 /* Pods-AJImageViewController_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F4948D1DFC20D6C3F0596D591BAE120B /* Pods-AJImageViewController_Tests-dummy.m */; };
+		0DFE2204CA70EF532BE50038E54442DF /* Pods-AJImageViewController_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AF46ADA02EF37DD0D06163734C603BE5 /* Pods-AJImageViewController_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2EA9417881CB7F1286105AA9539EC3E3 /* AJSingleImageViewControllerTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5534145879BA8DF07B46477E27CCF0 /* AJSingleImageViewControllerTransition.swift */; };
+		6E21B38E00A590162AD9256D56DC2C69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77ED4E37A39262D981884CE2309A9ACF /* Foundation.framework */; };
+		73FE81A01E5116F1F0588299655B7FEA /* AJSingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7829271C1475222BDED1CFF291A892 /* AJSingleImageViewController.swift */; };
+		7E7AD6F7FA6EF8932DD93D2130DCFFE1 /* Pods-AJImageViewController_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE55071276A674C481D43FD83AD97C /* Pods-AJImageViewController_Example-dummy.m */; };
+		95A7381A0F776F86053A4B84F6C29B8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77ED4E37A39262D981884CE2309A9ACF /* Foundation.framework */; };
+		A4A35CCF7AF006DE59BD2C313EAFD526 /* AJImageViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 55020AFCD32A73AE97B4031ED243F941 /* AJImageViewController-dummy.m */; };
+		B115A785316D6233C7A883C0B14BF9C3 /* Pods-AJImageViewController_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ED0C7F4903E30681892B82A16D0EEFF /* Pods-AJImageViewController_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8AADCA37222736BB10097405585C94D /* AJImageViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DC41E857DFDA5ED7B7654757733CCFE /* AJImageViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E10C474F336B29783A69D2FE7A0D6271 /* AJImageViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D9B9C6B37E35F9EDC1E88755B6CD5530 /* AJImageViewController.bundle */; };
+		EAA292CBB3A4C220615BB51BA410A9C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77ED4E37A39262D981884CE2309A9ACF /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2A2EBCBC047A556A5C26343E59B945A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4EC4A45C3609BDD1B7E0D2D34473D16;
+			remoteInfo = AJImageViewController;
+		};
+		52286B7DAEF7E7C30B88B160102A6C79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFBE9260349CF2D0F55ADAD7623F238E;
+			remoteInfo = "AJImageViewController-AJImageViewController";
+		};
+		7958F30FD9995CBAC0AC19346B057817 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4EC4A45C3609BDD1B7E0D2D34473D16;
+			remoteInfo = AJImageViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0892BA422949514665603460D87007E8 /* Pods-AJImageViewController_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AJImageViewController_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0ED0C7F4903E30681892B82A16D0EEFF /* Pods-AJImageViewController_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AJImageViewController_Tests-umbrella.h"; sourceTree = "<group>"; };
+		10BE55071276A674C481D43FD83AD97C /* Pods-AJImageViewController_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AJImageViewController_Example-dummy.m"; sourceTree = "<group>"; };
+		1222741D31D237E421BE313413518D6D /* Pods-AJImageViewController_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AJImageViewController_Example-frameworks.sh"; sourceTree = "<group>"; };
+		25CBC5DF871D1988831DAE0B44392508 /* AJImageViewController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "AJImageViewController-Private.xcconfig"; sourceTree = "<group>"; };
+		2D274605D7E0079B3EB3464FC6A64061 /* Pods-AJImageViewController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AJImageViewController_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		49B5D6AB571B8EC6B80DAC61FCAA6625 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5144B8982880450AC6A28F2E4C4906A2 /* Pods-AJImageViewController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AJImageViewController_Example.release.xcconfig"; sourceTree = "<group>"; };
+		53AE5D9C396545974057B3881E4E539C /* Pods-AJImageViewController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AJImageViewController_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		55020AFCD32A73AE97B4031ED243F941 /* AJImageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AJImageViewController-dummy.m"; sourceTree = "<group>"; };
+		6289858197505301227DB5717E83FC09 /* Pods-AJImageViewController_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AJImageViewController_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6DC41E857DFDA5ED7B7654757733CCFE /* AJImageViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AJImageViewController-umbrella.h"; sourceTree = "<group>"; };
+		72F2259E8E9022E7CC24A570D42B5A4E /* Pods-AJImageViewController_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AJImageViewController_Tests.modulemap"; sourceTree = "<group>"; };
+		7652E4CC4E64A0323A1CF3ABB4AC2409 /* AJImageViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AJImageViewController.xcconfig; sourceTree = "<group>"; };
+		7709F8ECF86437AE2B3280F3369675AD /* Pods-AJImageViewController_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AJImageViewController_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		77ED4E37A39262D981884CE2309A9ACF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7D81FC79E931F0E19EF7BCCBADA61738 /* Pods_AJImageViewController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AJImageViewController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8454761A141216355A38C480E140F636 /* Pods-AJImageViewController_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AJImageViewController_Tests-resources.sh"; sourceTree = "<group>"; };
+		94A84B2D0879026B2313D8534274A7B8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE5534145879BA8DF07B46477E27CCF0 /* AJSingleImageViewControllerTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AJSingleImageViewControllerTransition.swift; sourceTree = "<group>"; };
+		AEB67994C9E73EBA3CA2A6FBAA01B100 /* Pods-AJImageViewController_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AJImageViewController_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		AEE7E86E6677898959140F31AF794A2A /* Pods_AJImageViewController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AJImageViewController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF46ADA02EF37DD0D06163734C603BE5 /* Pods-AJImageViewController_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AJImageViewController_Example-umbrella.h"; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BDAD26AFDFEB7BB9D7C08D84CF286DDA /* Pods-AJImageViewController_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AJImageViewController_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		BEF5EFEA2C610993DCCD57F233318058 /* Pods-AJImageViewController_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AJImageViewController_Example-resources.sh"; sourceTree = "<group>"; };
+		C2E10C60257EC95A22B747B7151197CE /* AJImageViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AJImageViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB7EC305773028E8F3889822422DCF2D /* AJImageViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AJImageViewController.modulemap; sourceTree = "<group>"; };
+		CDDB721E1CC16DD027CCD8FDB64920E3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9B9C6B37E35F9EDC1E88755B6CD5530 /* AJImageViewController.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AJImageViewController.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9D71F3F1DE1EFFDF949043FC2C28F88 /* Pods-AJImageViewController_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AJImageViewController_Example.modulemap"; sourceTree = "<group>"; };
+		EB1EF9EECDE108016283D9B57142A65B /* Pods-AJImageViewController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AJImageViewController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		F220F6339F255489D287AB4F4F261474 /* AJImageViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AJImageViewController-prefix.pch"; sourceTree = "<group>"; };
+		F4948D1DFC20D6C3F0596D591BAE120B /* Pods-AJImageViewController_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AJImageViewController_Tests-dummy.m"; sourceTree = "<group>"; };
+		FC7829271C1475222BDED1CFF291A892 /* AJSingleImageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AJSingleImageViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2A9383675B42864C99DC900A6C19188F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95A7381A0F776F86053A4B84F6C29B8C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		427849FE810833D9DAB52D3CFBC865FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A09C350B3AA0AD76A2231639608256D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E21B38E00A590162AD9256D56DC2C69 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F528D70CD4F79FCBD520254ACF25A6D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAA292CBB3A4C220615BB51BA410A9C9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		022A32FE18D80FEBC31092E87B0F4FD3 /* Pods-AJImageViewController_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				94A84B2D0879026B2313D8534274A7B8 /* Info.plist */,
+				72F2259E8E9022E7CC24A570D42B5A4E /* Pods-AJImageViewController_Tests.modulemap */,
+				6289858197505301227DB5717E83FC09 /* Pods-AJImageViewController_Tests-acknowledgements.markdown */,
+				BDAD26AFDFEB7BB9D7C08D84CF286DDA /* Pods-AJImageViewController_Tests-acknowledgements.plist */,
+				F4948D1DFC20D6C3F0596D591BAE120B /* Pods-AJImageViewController_Tests-dummy.m */,
+				7709F8ECF86437AE2B3280F3369675AD /* Pods-AJImageViewController_Tests-frameworks.sh */,
+				8454761A141216355A38C480E140F636 /* Pods-AJImageViewController_Tests-resources.sh */,
+				0ED0C7F4903E30681892B82A16D0EEFF /* Pods-AJImageViewController_Tests-umbrella.h */,
+				EB1EF9EECDE108016283D9B57142A65B /* Pods-AJImageViewController_Tests.debug.xcconfig */,
+				2D274605D7E0079B3EB3464FC6A64061 /* Pods-AJImageViewController_Tests.release.xcconfig */,
+			);
+			name = "Pods-AJImageViewController_Tests";
+			path = "Target Support Files/Pods-AJImageViewController_Tests";
+			sourceTree = "<group>";
+		};
+		09F6DC8A068F9DA2C2C8D94C133FFD2F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CB7EC305773028E8F3889822422DCF2D /* AJImageViewController.modulemap */,
+				7652E4CC4E64A0323A1CF3ABB4AC2409 /* AJImageViewController.xcconfig */,
+				25CBC5DF871D1988831DAE0B44392508 /* AJImageViewController-Private.xcconfig */,
+				55020AFCD32A73AE97B4031ED243F941 /* AJImageViewController-dummy.m */,
+				F220F6339F255489D287AB4F4F261474 /* AJImageViewController-prefix.pch */,
+				6DC41E857DFDA5ED7B7654757733CCFE /* AJImageViewController-umbrella.h */,
+				49B5D6AB571B8EC6B80DAC61FCAA6625 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/AJImageViewController";
+			sourceTree = "<group>";
+		};
+		2DC2E6F4FEC0F02132C249BF48BA3DE9 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A9678518D756422D3ACB9E64C044651 /* AJImageViewController */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				77ED4E37A39262D981884CE2309A9ACF /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		77311EF8FC6312E59A2F38AD013B66E8 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				953C77848F58E6913E5C21B44677812F /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		7A9678518D756422D3ACB9E64C044651 /* AJImageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				77311EF8FC6312E59A2F38AD013B66E8 /* Pod */,
+				09F6DC8A068F9DA2C2C8D94C133FFD2F /* Support Files */,
+			);
+			name = AJImageViewController;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				2DC2E6F4FEC0F02132C249BF48BA3DE9 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
+				E68965F1D23C685A5E324174228668AE /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		953C77848F58E6913E5C21B44677812F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FC7829271C1475222BDED1CFF291A892 /* AJSingleImageViewController.swift */,
+				AE5534145879BA8DF07B46477E27CCF0 /* AJSingleImageViewControllerTransition.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9B9C6B37E35F9EDC1E88755B6CD5530 /* AJImageViewController.bundle */,
+				C2E10C60257EC95A22B747B7151197CE /* AJImageViewController.framework */,
+				AEE7E86E6677898959140F31AF794A2A /* Pods_AJImageViewController_Example.framework */,
+				7D81FC79E931F0E19EF7BCCBADA61738 /* Pods_AJImageViewController_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CDC65572545C0BEFB7EB37027AA61071 /* Pods-AJImageViewController_Example */ = {
+			isa = PBXGroup;
+			children = (
+				CDDB721E1CC16DD027CCD8FDB64920E3 /* Info.plist */,
+				E9D71F3F1DE1EFFDF949043FC2C28F88 /* Pods-AJImageViewController_Example.modulemap */,
+				0892BA422949514665603460D87007E8 /* Pods-AJImageViewController_Example-acknowledgements.markdown */,
+				AEB67994C9E73EBA3CA2A6FBAA01B100 /* Pods-AJImageViewController_Example-acknowledgements.plist */,
+				10BE55071276A674C481D43FD83AD97C /* Pods-AJImageViewController_Example-dummy.m */,
+				1222741D31D237E421BE313413518D6D /* Pods-AJImageViewController_Example-frameworks.sh */,
+				BEF5EFEA2C610993DCCD57F233318058 /* Pods-AJImageViewController_Example-resources.sh */,
+				AF46ADA02EF37DD0D06163734C603BE5 /* Pods-AJImageViewController_Example-umbrella.h */,
+				53AE5D9C396545974057B3881E4E539C /* Pods-AJImageViewController_Example.debug.xcconfig */,
+				5144B8982880450AC6A28F2E4C4906A2 /* Pods-AJImageViewController_Example.release.xcconfig */,
+			);
+			name = "Pods-AJImageViewController_Example";
+			path = "Target Support Files/Pods-AJImageViewController_Example";
+			sourceTree = "<group>";
+		};
+		E68965F1D23C685A5E324174228668AE /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDC65572545C0BEFB7EB37027AA61071 /* Pods-AJImageViewController_Example */,
+				022A32FE18D80FEBC31092E87B0F4FD3 /* Pods-AJImageViewController_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0380BEB10FACC5B51A54BE4A2B436A52 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8AADCA37222736BB10097405585C94D /* AJImageViewController-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F9D9DA2EAA419B2962986598311FE86 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B115A785316D6233C7A883C0B14BF9C3 /* Pods-AJImageViewController_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCD90DFEE9873DE4754DCAA693500914 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DFE2204CA70EF532BE50038E54442DF /* Pods-AJImageViewController_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2643FCBCEA0FA3DBF516A2C7FBFF5ACC /* Pods-AJImageViewController_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D4255FE8831F9A1D75C6D5A9B3E320E /* Build configuration list for PBXNativeTarget "Pods-AJImageViewController_Tests" */;
+			buildPhases = (
+				EA348EC81DA1D1B6625117225D6EF745 /* Sources */,
+				A09C350B3AA0AD76A2231639608256D7 /* Frameworks */,
+				1F9D9DA2EAA419B2962986598311FE86 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB4CB245717D484A8909B2912B822295 /* PBXTargetDependency */,
+			);
+			name = "Pods-AJImageViewController_Tests";
+			productName = "Pods-AJImageViewController_Tests";
+			productReference = 7D81FC79E931F0E19EF7BCCBADA61738 /* Pods_AJImageViewController_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		594B68CF2BDE0CEC6AA76005FBF3AD08 /* Pods-AJImageViewController_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D0FCCC58AAC3AD8EBAA6AA0B93FFB3F /* Build configuration list for PBXNativeTarget "Pods-AJImageViewController_Example" */;
+			buildPhases = (
+				D3FC7327EF698682F6CCB5A32022EF20 /* Sources */,
+				2A9383675B42864C99DC900A6C19188F /* Frameworks */,
+				DCD90DFEE9873DE4754DCAA693500914 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5ED1715167DB06E8AFF51B5C69C5DA4 /* PBXTargetDependency */,
+			);
+			name = "Pods-AJImageViewController_Example";
+			productName = "Pods-AJImageViewController_Example";
+			productReference = AEE7E86E6677898959140F31AF794A2A /* Pods_AJImageViewController_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A4EC4A45C3609BDD1B7E0D2D34473D16 /* AJImageViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9C48E4D644ABE55D132122C3F6E55B9 /* Build configuration list for PBXNativeTarget "AJImageViewController" */;
+			buildPhases = (
+				CAD5BB36A2533BF11523D78B28A28F59 /* Sources */,
+				F528D70CD4F79FCBD520254ACF25A6D9 /* Frameworks */,
+				73035BF0922DF32FD33883F2E969497C /* Resources */,
+				0380BEB10FACC5B51A54BE4A2B436A52 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F10D4E5241D9B49A7D3519DFB7363A22 /* PBXTargetDependency */,
+			);
+			name = AJImageViewController;
+			productName = AJImageViewController;
+			productReference = C2E10C60257EC95A22B747B7151197CE /* AJImageViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DFBE9260349CF2D0F55ADAD7623F238E /* AJImageViewController-AJImageViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BE924C6DE8DD557E853CD47E7E79A5B /* Build configuration list for PBXNativeTarget "AJImageViewController-AJImageViewController" */;
+			buildPhases = (
+				BB7A6ACD3618980013FD8FE6ADC85481 /* Sources */,
+				427849FE810833D9DAB52D3CFBC865FE /* Frameworks */,
+				73C7C27C0E67D876AE65E7C91317019E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AJImageViewController-AJImageViewController";
+			productName = "AJImageViewController-AJImageViewController";
+			productReference = D9B9C6B37E35F9EDC1E88755B6CD5530 /* AJImageViewController.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A4EC4A45C3609BDD1B7E0D2D34473D16 /* AJImageViewController */,
+				DFBE9260349CF2D0F55ADAD7623F238E /* AJImageViewController-AJImageViewController */,
+				594B68CF2BDE0CEC6AA76005FBF3AD08 /* Pods-AJImageViewController_Example */,
+				2643FCBCEA0FA3DBF516A2C7FBFF5ACC /* Pods-AJImageViewController_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		73035BF0922DF32FD33883F2E969497C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E10C474F336B29783A69D2FE7A0D6271 /* AJImageViewController.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73C7C27C0E67D876AE65E7C91317019E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BB7A6ACD3618980013FD8FE6ADC85481 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAD5BB36A2533BF11523D78B28A28F59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4A35CCF7AF006DE59BD2C313EAFD526 /* AJImageViewController-dummy.m in Sources */,
+				73FE81A01E5116F1F0588299655B7FEA /* AJSingleImageViewController.swift in Sources */,
+				2EA9417881CB7F1286105AA9539EC3E3 /* AJSingleImageViewControllerTransition.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3FC7327EF698682F6CCB5A32022EF20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E7AD6F7FA6EF8932DD93D2130DCFFE1 /* Pods-AJImageViewController_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA348EC81DA1D1B6625117225D6EF745 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0241C5F7641EB5BAFE3C0EF301DB9EA5 /* Pods-AJImageViewController_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F10D4E5241D9B49A7D3519DFB7363A22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "AJImageViewController-AJImageViewController";
+			target = DFBE9260349CF2D0F55ADAD7623F238E /* AJImageViewController-AJImageViewController */;
+			targetProxy = 52286B7DAEF7E7C30B88B160102A6C79 /* PBXContainerItemProxy */;
+		};
+		F5ED1715167DB06E8AFF51B5C69C5DA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AJImageViewController;
+			target = A4EC4A45C3609BDD1B7E0D2D34473D16 /* AJImageViewController */;
+			targetProxy = 7958F30FD9995CBAC0AC19346B057817 /* PBXContainerItemProxy */;
+		};
+		FB4CB245717D484A8909B2912B822295 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AJImageViewController;
+			target = A4EC4A45C3609BDD1B7E0D2D34473D16 /* AJImageViewController */;
+			targetProxy = 2A2EBCBC047A556A5C26343E59B945A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		10DE1947DAC0ED28F6C0A9F9BD75D546 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		177A8F32258AAF8420BF5E7DE82005AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25CBC5DF871D1988831DAE0B44392508 /* AJImageViewController-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = AJImageViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		22DC675003E60609C4EF76494C16932B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25CBC5DF871D1988831DAE0B44392508 /* AJImageViewController-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = AJImageViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		254D0D9230844E2583161FE3822DE7A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D274605D7E0079B3EB3464FC6A64061 /* Pods-AJImageViewController_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AJImageViewController_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-AJImageViewController_Tests/Pods-AJImageViewController_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_AJImageViewController_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		552D02D5BA751AC2E8790D2811D496CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		5C4916968BD4AE47D201FE86E5501BB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB1EF9EECDE108016283D9B57142A65B /* Pods-AJImageViewController_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AJImageViewController_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-AJImageViewController_Tests/Pods-AJImageViewController_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_AJImageViewController_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9B03234D6B30230E6A04ADB0CABA84D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25CBC5DF871D1988831DAE0B44392508 /* AJImageViewController-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 0.1.0;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 0.1.0;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AJImageViewController/AJImageViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AJImageViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AJImageViewController/AJImageViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = AJImageViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B79F8B8899924E632D4B3F12C69AA934 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25CBC5DF871D1988831DAE0B44392508 /* AJImageViewController-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 0.1.0;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 0.1.0;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AJImageViewController/AJImageViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AJImageViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AJImageViewController/AJImageViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = AJImageViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DE3086095253DCEF91BA01372D5A4AA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5144B8982880450AC6A28F2E4C4906A2 /* Pods-AJImageViewController_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AJImageViewController_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-AJImageViewController_Example/Pods-AJImageViewController_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_AJImageViewController_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E3F2490168970D4F67A79076AAFD87A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53AE5D9C396545974057B3881E4E539C /* Pods-AJImageViewController_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-AJImageViewController_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-AJImageViewController_Example/Pods-AJImageViewController_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_AJImageViewController_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0BE924C6DE8DD557E853CD47E7E79A5B /* Build configuration list for PBXNativeTarget "AJImageViewController-AJImageViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				177A8F32258AAF8420BF5E7DE82005AD /* Debug */,
+				22DC675003E60609C4EF76494C16932B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				552D02D5BA751AC2E8790D2811D496CA /* Debug */,
+				10DE1947DAC0ED28F6C0A9F9BD75D546 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D4255FE8831F9A1D75C6D5A9B3E320E /* Build configuration list for PBXNativeTarget "Pods-AJImageViewController_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C4916968BD4AE47D201FE86E5501BB6 /* Debug */,
+				254D0D9230844E2583161FE3822DE7A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D0FCCC58AAC3AD8EBAA6AA0B93FFB3F /* Build configuration list for PBXNativeTarget "Pods-AJImageViewController_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3F2490168970D4F67A79076AAFD87A5 /* Debug */,
+				DE3086095253DCEF91BA01372D5A4AA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9C48E4D644ABE55D132122C3F6E55B9 /* Build configuration list for PBXNativeTarget "AJImageViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B79F8B8899924E632D4B3F12C69AA934 /* Debug */,
+				9B03234D6B30230E6A04ADB0CABA84D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

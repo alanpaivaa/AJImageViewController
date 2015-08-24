@@ -1,0 +1,6 @@
+framework module AJImageViewController {
+  umbrella header "AJImageViewController-umbrella.h"
+
+  export *
+  module * { export * }
+}
