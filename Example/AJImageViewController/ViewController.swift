@@ -31,7 +31,6 @@ class ViewController: UIViewController {
         tapB.numberOfTouchesRequired = 1
         self.imageViewB.userInteractionEnabled = true
         self.imageViewB.addGestureRecognizer(tapB)
-        
     }
     
     func presentSingleImageViewController(gesture: UITapGestureRecognizer) -> Void {

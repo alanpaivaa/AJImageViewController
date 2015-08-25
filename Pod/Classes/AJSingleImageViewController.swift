@@ -10,13 +10,15 @@ public class AJSingleImageViewController: UIViewController, UIViewControllerTran
     
     var imageView: UIImageView!
     private var transition = AJSingleImageViewControllerTransition()
+    private var factor: CGFloat!
     
     public init(imageView: UIImageView, imageWidth: CGFloat = UIScreen.mainScreen().bounds.size.width, shouldBounce: Bool? = nil, transitionDuration: NSTimeInterval? = nil) {
         super.init(nibName: nil, bundle: nil)
-        self.setupUIWith(imageView: imageView)
-        self.setupGestureRecognizer()
         self.transition.referenceImageView = imageView
         self.transition.imageWidth = imageWidth
+        self.factor = imageWidth / imageView.frame.size.width
+        self.setupUIWith(imageView: imageView)
+        self.setupGestureRecognizer()
         if let shouldBounce = shouldBounce {
             self.transition.shouldBounce = shouldBounce
         }
@@ -37,10 +39,13 @@ public class AJSingleImageViewController: UIViewController, UIViewControllerTran
     private func setupUIWith(#imageView: UIImageView) -> Void {
         self.view.backgroundColor = UIColor.blackColor()
         self.imageView = UIImageView(image: imageView.image)
-        self.imageView.frame = imageView.frame
         self.imageView.contentMode = imageView.contentMode
         self.imageView.layer.cornerRadius = imageView.layer.cornerRadius
         self.imageView.clipsToBounds = imageView.clipsToBounds
+        self.imageView.frame = imageView.frame
+        
+        self.imageView.transform = CGAffineTransformMakeScale(self.factor, self.factor)
+        self.imageView.center = self.view.center
         
         self.view.addSubview(self.imageView)
     }
