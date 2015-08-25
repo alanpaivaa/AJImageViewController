@@ -11,27 +11,37 @@ import AJImageViewController
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageViewA: UIImageView!
+    @IBOutlet weak var imageViewB: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupGestureRecognizer()
+        self.setupGestureRecognizers()
     }
     
-    func setupGestureRecognizer() -> Void {
-        let tapGesture = UITapGestureRecognizer(target: self, action: Selector("presentImageViewController:"))
-        tapGesture.numberOfTapsRequired = 1
-        tapGesture.numberOfTouchesRequired = 1
-        self.imageView.userInteractionEnabled = true
-        self.imageView.addGestureRecognizer(tapGesture)
+    func setupGestureRecognizers() -> Void {
+        let tapA = UITapGestureRecognizer(target: self, action: Selector("presentSingleImageViewController:"))
+        tapA.numberOfTapsRequired = 1
+        tapA.numberOfTouchesRequired = 1
+        self.imageViewA.userInteractionEnabled = true
+        self.imageViewA.addGestureRecognizer(tapA)
+        
+        let tapB = UITapGestureRecognizer(target: self, action: Selector("presentImageViewController:"))
+        tapB.numberOfTapsRequired = 1
+        tapB.numberOfTouchesRequired = 1
+        self.imageViewB.userInteractionEnabled = true
+        self.imageViewB.addGestureRecognizer(tapB)
+        
+    }
+    
+    func presentSingleImageViewController(gesture: UITapGestureRecognizer) -> Void {
+        let singleImageController = AJSingleImageViewController(imageView: self.imageViewA)
+        self.presentViewController(singleImageController, animated: true, completion: nil)
     }
     
     func presentImageViewController(gesture: UITapGestureRecognizer) -> Void {
         let imageViewController = AJImageViewController(images: UIImage(named: "image1")!, UIImage(named: "image2")!, UIImage(named: "image3")!, UIImage(named: "image4")!)
-//        let imageViewController = AJImageViewController(urls: NSURL(string: "https://pixabay.com/static/uploads/photo/2013/10/09/02/26/beach-192975_640.jpg")!, NSURL(string: "https://pixabay.com/static/uploads/photo/2015/08/17/01/30/01-30-07-194_640.jpg")!, NSURL(string: "https://pixabay.com/static/uploads/photo/2013/10/02/23/03/dawn-190055_640.jpg")!, NSURL(string: "https://pixabay.com/static/uploads/photo/2015/07/08/19/28/summer-836773_640.jpg")!)
         self.presentViewController(imageViewController, animated: true, completion: nil)
-//        let singleImageController = AJSingleImageViewController(imageView: self.imageView)
-//        self.presentViewController(singleImageController, animated: true, completion: nil)
     }
     
 }
