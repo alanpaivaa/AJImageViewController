@@ -5,11 +5,11 @@
 [![License](https://img.shields.io/cocoapods/l/AJImageViewController.svg?style=flat)](http://cocoapods.org/pods/AJImageViewController)
 [![Platform](https://img.shields.io/cocoapods/p/AJImageViewController.svg?style=flat)](http://cocoapods.org/pods/AJImageViewController)
 
-## Usage
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## Intro
+Nothing yet
 
 ## Requirements
+iOS 8.0 or later
 
 ## Installation
 
@@ -19,6 +19,10 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "AJImageViewController"
 ```
+
+## Usage
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Author
 
