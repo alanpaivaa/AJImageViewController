@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="150" id="KEa-H3-Kya"/>
                                 </constraints>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="9sK-xR-A8d">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="9sK-xR-A8d">
                                 <rect key="frame" x="16" y="178" width="208" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="208" id="BwM-by-maa"/>

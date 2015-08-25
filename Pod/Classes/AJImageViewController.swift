@@ -25,20 +25,20 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     private var loadType = AJImageViewControllerLoadType.LoadFromLocalImages
     private var itensCount = 0
     
-    private var transition: UIViewControllerAnimatedTransitioning = AJFadeTransition()
+    private var transition = AJAwesomeTransition()
     
-    public init(images: UIImage ...) {
+    public init(imageView: UIImageView, images: UIImage ...) {
         super.init(nibName: nil, bundle: nil)
-        for image in images {
-            self.images.append(image)
-        }
+        self.images = images
+        self.transition.referenceImageView = imageView
+        self.transition.imageWidth = self.view.frame.size.width
     }
     
-    public init(urls: NSURL ...) {
+    public init(imageView: UIImageView, urls: NSURL ...) {
         super.init(nibName: nil, bundle: nil)
-        for url in urls {
-            self.urls.append(url)
-        }
+        self.urls = urls
+        self.transition.referenceImageView = imageView
+        self.transition.imageWidth = self.view.frame.size.width
     }
     
     required public init(coder aDecoder: NSCoder) {
@@ -187,7 +187,7 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     }
     
     public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return self.transition
+        return nil//self.transition
     }
 }
 

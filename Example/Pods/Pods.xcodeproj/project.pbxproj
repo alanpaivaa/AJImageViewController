@@ -10,6 +10,7 @@
 		0241C5F7641EB5BAFE3C0EF301DB9EA5 /* Pods-AJImageViewController_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F4948D1DFC20D6C3F0596D591BAE120B /* Pods-AJImageViewController_Tests-dummy.m */; };
 		0DFE2204CA70EF532BE50038E54442DF /* Pods-AJImageViewController_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AF46ADA02EF37DD0D06163734C603BE5 /* Pods-AJImageViewController_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2785FFC8FE59615FD110AEAC769E739D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70F3A4E4558782B333DB590150225EE /* Foundation.framework */; };
+		28F104E41B8CDCAC001FFC9C /* AJAwesomeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F104E31B8CDCAC001FFC9C /* AJAwesomeTransition.swift */; };
 		41C1AD354986D4ABD362D72ABC446643 /* AJSingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5905764BBF200AE8381E0FD99F7990D /* AJSingleImageViewController.swift */; };
 		424BB6F1BB26228C2D69A7202E9B9767 /* AJScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FABE83759F5E97903DA0531EBBCB625 /* AJScrollView.swift */; };
 		5DD9DC64F3047D28007006C40102E333 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429C9C5347641B909B245CD3FC868DE1 /* Enums.swift */; };
@@ -57,6 +58,7 @@
 		10BE55071276A674C481D43FD83AD97C /* Pods-AJImageViewController_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AJImageViewController_Example-dummy.m"; sourceTree = "<group>"; };
 		1222741D31D237E421BE313413518D6D /* Pods-AJImageViewController_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AJImageViewController_Example-frameworks.sh"; sourceTree = "<group>"; };
 		171C88C39E4E4C53E85E90671DC5383C /* AJFadeTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AJFadeTransition.swift; sourceTree = "<group>"; };
+		28F104E31B8CDCAC001FFC9C /* AJAwesomeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AJAwesomeTransition.swift; sourceTree = "<group>"; };
 		2D274605D7E0079B3EB3464FC6A64061 /* Pods-AJImageViewController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AJImageViewController_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		31DC074D9821C3CE8F49A95E0CF112A0 /* AJSingleImageViewControllerTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AJSingleImageViewControllerTransition.swift; sourceTree = "<group>"; };
 		37F3D7BCCF318AFD33BFA53DD7E9E6EC /* delete.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				B5905764BBF200AE8381E0FD99F7990D /* AJSingleImageViewController.swift */,
 				31DC074D9821C3CE8F49A95E0CF112A0 /* AJSingleImageViewControllerTransition.swift */,
 				429C9C5347641B909B245CD3FC868DE1 /* Enums.swift */,
+				28F104E31B8CDCAC001FFC9C /* AJAwesomeTransition.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				FD4AFFED69BDFF04B0BE2D6E2D95CBD4 /* AJFadeTransition.swift in Sources */,
 				85FD18F259ADE893893EAE03D375C8F5 /* AJImageViewController-dummy.m in Sources */,
 				7903348A2619961B0D3410C5CD574F0C /* AJImageViewController.swift in Sources */,
+				28F104E41B8CDCAC001FFC9C /* AJAwesomeTransition.swift in Sources */,
 				424BB6F1BB26228C2D69A7202E9B9767 /* AJScrollView.swift in Sources */,
 				41C1AD354986D4ABD362D72ABC446643 /* AJSingleImageViewController.swift in Sources */,
 				85159C06A73B40F566326012F2603344 /* AJSingleImageViewControllerTransition.swift in Sources */,

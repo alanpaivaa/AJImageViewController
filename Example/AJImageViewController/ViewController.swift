@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     }
     
     func presentImageViewController(gesture: UITapGestureRecognizer) -> Void {
-        let imageViewController = AJImageViewController(images: UIImage(named: "image1")!, UIImage(named: "image2")!, UIImage(named: "image3")!, UIImage(named: "image4")!)
+        let imageViewController = AJImageViewController(imageView: self.imageViewB, images: UIImage(named: "image1")!, UIImage(named: "image2")!, UIImage(named: "image3")!, UIImage(named: "image4")!)
         self.presentViewController(imageViewController, animated: true, completion: nil)
     }
     
