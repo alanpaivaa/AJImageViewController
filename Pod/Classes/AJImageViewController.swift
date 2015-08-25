@@ -21,6 +21,8 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     let sideOffset: CGFloat = 10.0
     
     var dismissButtonImage: UIImage!
+    var imageWidth: CGFloat!
+    var originalImageCenter: CGPoint!
     
     private var loadType = AJImageViewControllerLoadType.LoadFromLocalImages
     private var itensCount = 0
@@ -30,15 +32,21 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     public init(imageView: UIImageView, images: UIImage ...) {
         super.init(nibName: nil, bundle: nil)
         self.images = images
-        self.transition.referenceImageView = imageView
-        self.transition.imageWidth = self.view.frame.size.width
+        self.setupTransitionWith(imageView: imageView)
     }
     
     public init(imageView: UIImageView, urls: NSURL ...) {
         super.init(nibName: nil, bundle: nil)
         self.urls = urls
+        self.setupTransitionWith(imageView: imageView)
+    }
+    
+    private func setupTransitionWith(#imageView: UIImageView) -> Void {
+        self.imageWidth = imageView.frame.size.width
+        self.originalImageCenter = imageView.center
         self.transition.referenceImageView = imageView
         self.transition.imageWidth = self.view.frame.size.width
+        self.transition.destinationPoint = self.view.center
     }
     
     required public init(coder aDecoder: NSCoder) {
@@ -165,6 +173,9 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     }
     
     func dismissViewController(sender: UIButton) -> Void {
+        self.transition.referenceImageView = self.pages[self.currentPage]!.imageView
+        self.transition.imageWidth = self.imageWidth
+        self.transition.destinationPoint = self.originalImageCenter
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -187,7 +198,7 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     }
     
     public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return nil//self.transition
+        return self.transition
     }
 }
 
