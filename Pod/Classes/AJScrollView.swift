@@ -19,7 +19,7 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
     var imagePanOffset: CGFloat = 60.0
     var imageBackToCenterAnimationTime: NSTimeInterval = 0.3
     var panStarted = false
-    var superScroll: UIScrollView!
+    var superScroll: UIScrollView?
     
     init(frame: CGRect, image: UIImage) {
         super.init(frame: frame)
@@ -154,8 +154,8 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
             if panGesture.state == UIGestureRecognizerState.Began {
                 self.delta.x = point.x - self.imageView.center.x
                 self.delta.y = point.y - self.imageView.center.y
-            } else if panGesture.state == UIGestureRecognizerState.Changed && self.superScroll.bounds.origin.x == CGFloat(self.tag)*self.superScroll.bounds.size.width && (self.panStarted || (panGesture.velocityInView(self).y != 0 && panGesture.velocityInView(self).x==0)) {
-                self.superScroll.scrollEnabled = false
+            } else if panGesture.state == UIGestureRecognizerState.Changed && self.superScroll!.bounds.origin.x == CGFloat(self.tag)*self.superScroll!.bounds.size.width && (self.panStarted || (panGesture.velocityInView(self).y != 0 && panGesture.velocityInView(self).x==0)) {
+                self.superScroll?.scrollEnabled = false
                 let center = CGPoint(x: point.x - self.delta.x, y: point.y - self.delta.y)
                 self.imageView.center = center
                 self.panStarted = true
@@ -164,9 +164,9 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
                 if abs(self.imageView.center.y - self.center.y) > self.imagePanOffset {
                     self.dismissBlock?()
                 } else {
-                    self.superScroll.scrollEnabled = true
+                    self.superScroll?.scrollEnabled = true
                     UIView.animateWithDuration(self.imageBackToCenterAnimationTime, animations: { () -> Void in
-                        self.imageView.center = self.superScroll.center
+                        self.imageView.center = self.superScroll!.center
                     })
                 }
             }
@@ -196,6 +196,15 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
     
     func scrollViewDidZoom(scrollView: UIScrollView) {
         self.centerImageView()
+        self.superScroll?.scrollEnabled = false
+        self.superScroll?.bounces = false
+        self.bounces = false
+    }
+    
+    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView!, atScale scale: CGFloat) {
+        self.superScroll?.scrollEnabled = self.minScale == self.zoomScale
+        self.superScroll?.bounces = self.minScale == self.zoomScale
+        self.bounces = self.minScale == self.zoomScale
     }
     
     //MARK:- Gesture reconizer delegate

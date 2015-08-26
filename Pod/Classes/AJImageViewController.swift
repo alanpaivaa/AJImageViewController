@@ -19,7 +19,6 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     var currentPage = 0
     var loadedPagesOffset = 1
     let sideOffset: CGFloat = 10.0
-    var isScrolling = false
     
     var dismissButtonImage: UIImage!
     var imageWidth: CGFloat!
@@ -194,11 +193,6 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
             self.currentPage = page
             self.loadVisiblePages()
         }
-        self.isScrolling = false
-    }
-    
-    public func scrollViewDidScroll(scrollView: UIScrollView) {
-        self.isScrolling = true
     }
     
     //MARK:- Transition Delegate
