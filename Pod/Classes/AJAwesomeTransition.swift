@@ -10,14 +10,17 @@ import UIKit
 
 class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
-    private var duration: NSTimeInterval = 0.6
+    var duration: NSTimeInterval = 0.6
     private let kDumping: CGFloat = 0.8
     private var originalImageView: UIImageView!
     var presenting = true
     var referenceImageView: UIImageView!
     var imageWidth: CGFloat!
     var shouldBounce: Bool = true
-    var destinationPoint: CGPoint!
+    private var destinationPoint: CGPoint!
+    private var originalImageCenter: CGPoint!
+    var dismissalType = AJImageViewDismissalType.OriginalImage
+    var rotation: CGFloat?
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
         return self.duration
@@ -42,6 +45,25 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
         
         if let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey), toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) {
             
+            //Setting up destination point
+            if let toViewController = toViewController as? AJImageViewController {
+                self.originalImageCenter = self.referenceImageView.center
+                self.destinationPoint = containerView.center
+            } else {
+                //If user did not chang page image after dismissing
+                if self.dismissalType == AJImageViewDismissalType.OriginalImage {
+                    self.destinationPoint = self.originalImageCenter
+                } else {
+                    //Otherwise
+                    self.destinationPoint.x = self.referenceImageView.center.x
+                    self.destinationPoint.y = containerView.frame.size.height + (self.referenceImageView.frame.size.width * sqrt(2))/2
+                    self.originalImageView.hidden = false
+                    self.duration *= 1.6
+                    factor = 1.0
+                    rotation = CGFloat(M_PI_4)
+                }
+            }
+            
             //View which holds the alpha animation
             var alphaView = UIView(frame: containerView.frame)
             alphaView.backgroundColor = UIColor.blackColor()
@@ -63,6 +85,9 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
             
             UIView.animateWithDuration(self.duration, delay: 0, usingSpringWithDamping: (self.shouldBounce ? self.kDumping : 1.0), initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                 imageView.transform = CGAffineTransformMakeScale(factor, factor)
+                if let rotation = self.rotation {
+                    imageView.transform = CGAffineTransformMakeRotation(rotation)
+                }
                 imageView.center = self.destinationPoint
                 alphaView.alpha = self.presenting ? 1.0 : 0.0
                 }) { (_) -> Void in

@@ -12,3 +12,8 @@ enum AJImageViewControllerLoadType {
     case LoadFromUrls
     case LoadFromLocalImages
 }
+
+enum AJImageViewDismissalType {
+    case OriginalImage
+    case DisappearBottom
+}

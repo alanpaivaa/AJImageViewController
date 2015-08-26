@@ -23,6 +23,7 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     var dismissButtonImage: UIImage!
     var imageWidth: CGFloat!
     var originalImageCenter: CGPoint!
+    private var firstPage: Int!
     
     private var loadType = AJImageViewControllerLoadType.LoadFromLocalImages
     private var itensCount = 0
@@ -46,7 +47,6 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
         self.originalImageCenter = imageView.center
         self.transition.referenceImageView = imageView
         self.transition.imageWidth = self.view.frame.size.width
-        self.transition.destinationPoint = self.view.center
     }
     
     required public init(coder aDecoder: NSCoder) {
@@ -55,6 +55,7 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        self.firstPage = self.currentPage
         self.transitioningDelegate = self
         self.view.backgroundColor = UIColor.blackColor()
         self.setupSuperSCrollView()
@@ -75,19 +76,24 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     func setupPagging() -> Void {
         self.scrollView.delegate = self
         
+        //Setup load type
         if self.images.count == 0 {
             self.loadType = AJImageViewControllerLoadType.LoadFromUrls
         }
         
+        //Counting the number of itens
         self.setupItemCount()
         
+        //Create page holders
         for _ in 0..<self.itensCount {
             self.pages.append(nil)
         }
         
+        //Setup scroll view
         self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width * CGFloat(self.itensCount), height: self.scrollView.frame.size.height)
         self.scrollView.contentOffset.x = CGFloat(self.currentPage) * self.scrollView.frame.width
         
+        //Creates the current page and the - and + page offset
         self.loadVisiblePages()
     }
     
@@ -119,10 +125,12 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
                     insideScroll = AJScrollView(frame: frame, url: self.urls[page])
                 }
                 
-                //Adding subviews
+                
                 insideScroll.dismissBlock = self.dismissViewController
                 insideScroll.superScroll = self.scrollView
                 insideScroll.tag = page
+                
+                //Adding subviews
                 self.scrollView.addSubview(insideScroll)
                 
                 self.pages[page] = insideScroll
@@ -143,14 +151,17 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
         let firstPage = self.currentPage - self.loadedPagesOffset
         let lastPage = self.currentPage + self.loadedPagesOffset
         
+        //Dealocating pages
         for var index = 0; index<firstPage; ++index {
             self.purge(page: index)
         }
         
+        //Allocating pages
         for i in firstPage...lastPage {
             self.load(page: i)
         }
         
+        //Dealocating pages
         for var index = lastPage+1; index<self.itensCount; ++index {
             self.purge(page: index)
         }
@@ -178,7 +189,9 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     func dismissViewController() -> Void {
         self.transition.referenceImageView = self.pages[self.currentPage]!.imageView
         self.transition.imageWidth = self.imageWidth
-        self.transition.destinationPoint = self.originalImageCenter
+        if self.currentPage != self.firstPage {
+            self.transition.dismissalType = AJImageViewDismissalType.DisappearBottom
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
