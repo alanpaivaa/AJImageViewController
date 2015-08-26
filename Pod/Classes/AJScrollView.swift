@@ -8,12 +8,17 @@
 
 import UIKit
 
-class AJScrollView: UIScrollView, UIScrollViewDelegate {
+class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDelegate {
     
     var imageView: UIImageView!
     var minScale: CGFloat!
     var loadIndicator: UIActivityIndicatorView!
     var fadeDuration: NSTimeInterval = 0.3
+    var delta = CGPoint(x: 0, y: 0)
+    var dismissBlock: (() -> Void)?
+    var imagePanOffset: CGFloat = 60.0
+    var imageBackToCenterAnimationTime: NSTimeInterval = 0.3
+    var panStarted = false
     
     init(frame: CGRect, image: UIImage) {
         super.init(frame: frame)
@@ -26,6 +31,7 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate {
         self.zoom(toScale: self.minScale, animated: false)
         self.centerImageView()
         self.showImageView()
+        self.setupImageTapGesture()
     }
     
     init(frame: CGRect, url: NSURL) {
@@ -134,6 +140,42 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate {
         self.imageView.addGestureRecognizer(doubleTapGesture)
     }
     
+    private func setupImageTapGesture() -> Void {
+        let panGesture = UIPanGestureRecognizer(target: self, action: Selector("imageDidPan:"))
+        panGesture.delegate = self
+        self.imageView.userInteractionEnabled = true
+        self.imageView.addGestureRecognizer(panGesture)
+    }
+    
+    func imageDidPan(panGesture: UIPanGestureRecognizer) -> Void {
+        if self.minScale == self.zoomScale {
+            let point = panGesture.locationInView(self)
+            if panGesture.state == UIGestureRecognizerState.Began {
+                self.delta.x = point.x - self.imageView.center.x
+                self.delta.y = point.y - self.imageView.center.y
+            } else if panGesture.state == UIGestureRecognizerState.Changed && (self.panStarted || (panGesture.velocityInView(self).y != 0 && panGesture.velocityInView(self).x==0)){
+                if let s = self.superview as? UIScrollView {
+                    s.scrollEnabled = false
+                }
+                let center = CGPoint(x: point.x - self.delta.x, y: point.y - self.delta.y)
+                self.imageView.center = center
+                self.panStarted = true
+            } else if panGesture.state == UIGestureRecognizerState.Ended {
+                self.panStarted = false
+                if abs(self.imageView.center.y - self.center.y) > self.imagePanOffset {
+                    self.dismissBlock?()
+                } else {
+                    if let s = self.superview as? UIScrollView {
+                        s.scrollEnabled = true
+                        UIView.animateWithDuration(self.imageBackToCenterAnimationTime, animations: { () -> Void in
+                            self.imageView.center = s.center
+                        })
+                    }
+                }
+            }
+        }
+    }
+    
     func doubleTapScrollView(tapGesture: UITapGestureRecognizer) -> Void {
         let pointInView = tapGesture.locationInView(self.imageView)
         
@@ -157,6 +199,11 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate {
     
     func scrollViewDidZoom(scrollView: UIScrollView) {
         self.centerImageView()
+    }
+    
+    //MARK:- Gesture reconizer delegate
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
 }

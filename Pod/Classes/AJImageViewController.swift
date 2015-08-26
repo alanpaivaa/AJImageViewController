@@ -120,6 +120,7 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
                 }
                 
                 //Adding subviews
+                insideScroll.dismissBlock = self.dismissViewController
                 self.scrollView.addSubview(insideScroll)
                 
                 self.pages[page] = insideScroll
@@ -168,11 +169,11 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
         }
         
         button.setImage(self.dismissButtonImage, forState: UIControlState.Normal)
-        button.addTarget(self, action: Selector("dismissViewController:"), forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: Selector("dismissViewController"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
     }
     
-    func dismissViewController(sender: UIButton) -> Void {
+    func dismissViewController() -> Void {
         self.transition.referenceImageView = self.pages[self.currentPage]!.imageView
         self.transition.imageWidth = self.imageWidth
         self.transition.destinationPoint = self.originalImageCenter
