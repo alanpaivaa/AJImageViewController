@@ -207,6 +207,7 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
             self.currentPage = page
             self.loadVisiblePages()
         }
+        self.transition.showOriginalImage(self.currentPage != self.firstPage)
     }
     
     //MARK:- Transition Delegate
