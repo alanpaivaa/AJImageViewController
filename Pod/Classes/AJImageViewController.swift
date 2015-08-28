@@ -57,6 +57,7 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
         super.viewDidLoad()
         self.firstPage = self.currentPage
         self.transitioningDelegate = self
+        self.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
         self.view.backgroundColor = UIColor.blackColor()
         self.setupSuperSCrollView()
         self.setupPagging()

@@ -66,7 +66,7 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
             
             //View which holds the alpha animation
             var alphaView = UIView(frame: containerView.frame)
-            alphaView.backgroundColor = UIColor.blackColor()
+            alphaView.backgroundColor = self.presenting ? toViewController.view.backgroundColor : fromViewController.view.backgroundColor
             alphaView.alpha = self.presenting ? 0.0 : 1.0
             
             if self.presenting {
@@ -100,6 +100,9 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
                     toViewController.view.frame.origin = CGPoint(x: 0, y: 0)
                     containerView.addSubview(toViewController.view)
                     transitionContext.completeTransition(true)
+                    if !self.presenting {
+                        UIApplication.sharedApplication().keyWindow?.addSubview(toViewController.view)
+                    }
                     self.presenting = !self.presenting
             }
             

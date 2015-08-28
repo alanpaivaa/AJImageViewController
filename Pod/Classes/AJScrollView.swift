@@ -159,6 +159,7 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
                 let center = CGPoint(x: point.x - self.delta.x, y: point.y - self.delta.y)
                 self.imageView.center = center
                 self.panStarted = true
+                self.superScroll?.superview?.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(1 - (abs(self.imageView.center.y - self.center.y) / (self.frame.height/2 + self.imageView.frame.size.height/2)))
             } else if panGesture.state == UIGestureRecognizerState.Ended {
                 self.panStarted = false
                 if abs(self.imageView.center.y - self.center.y) > self.imagePanOffset {
