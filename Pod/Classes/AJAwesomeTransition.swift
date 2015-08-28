@@ -17,6 +17,7 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
     var referenceImageView: UIImageView!
     var imageWidth: CGFloat!
     var shouldBounce: Bool = true
+    var shouldRotate: Bool = false
     private var destinationPoint: CGPoint!
     private var originalImageCenter: CGPoint!
     var dismissalType = AJImageViewDismissalType.OriginalImage
@@ -60,7 +61,9 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
                     self.originalImageView.hidden = false
                     self.duration *= 1.6
                     factor = 1.0
-                    rotation = CGFloat(M_PI_4)
+                    if self.shouldRotate {
+                        rotation = CGFloat(M_PI_4)
+                    }
                 }
             }
             
@@ -77,7 +80,7 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
             } else {
                 //If back to the first View Controller
                 fromViewController.view.removeFromSuperview()
-                toViewController.view.frame.origin = CGPoint(x: 0, y: 0)
+                //                toViewController.view.frame.origin = CGPoint(x: 0, y: 0)
                 containerView.addSubview(toViewController.view)
                 containerView.addSubview(alphaView)
                 containerView.addSubview(imageView)
@@ -97,7 +100,7 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
                     //Removing animating views
                     alphaView.removeFromSuperview()
                     imageView.removeFromSuperview()
-                    toViewController.view.frame.origin = CGPoint(x: 0, y: 0)
+                    //                    toViewController.view.frame.origin = CGPoint(x: 0, y: 0)
                     containerView.addSubview(toViewController.view)
                     transitionContext.completeTransition(true)
                     if !self.presenting {
