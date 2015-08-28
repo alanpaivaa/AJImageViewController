@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,13 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="image4" translatesAutoresizingMaskIntoConstraints="NO" id="k6i-oy-ItM">
-                                <rect key="frame" x="16" y="20" width="208" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="208" id="CGY-JK-gef"/>
-                                    <constraint firstAttribute="height" constant="150" id="KEa-H3-Kya"/>
-                                </constraints>
-                            </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="9sK-xR-A8d">
                                 <rect key="frame" x="16" y="178" width="208" height="150"/>
                                 <constraints>
@@ -30,17 +24,24 @@
                                     <constraint firstAttribute="height" constant="150" id="xTZ-8Q-bnM"/>
                                 </constraints>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="image4" translatesAutoresizingMaskIntoConstraints="NO" id="2Rj-yU-KOY">
+                                <rect key="frame" x="16" y="20" width="208" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2Rj-yU-KOY" secondAttribute="height" multiplier="1280:853" id="Oyz-y6-bkZ"/>
+                                    <constraint firstAttribute="width" constant="208" id="h5g-et-0eS"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="k6i-oy-ItM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="EzC-U4-4r9"/>
-                            <constraint firstItem="9sK-xR-A8d" firstAttribute="leading" secondItem="k6i-oy-ItM" secondAttribute="leading" id="Kls-d0-79S"/>
-                            <constraint firstItem="9sK-xR-A8d" firstAttribute="top" secondItem="k6i-oy-ItM" secondAttribute="bottom" constant="8" id="TnM-AS-QDn"/>
-                            <constraint firstItem="k6i-oy-ItM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="ZHb-6W-Jjx"/>
+                            <constraint firstItem="2Rj-yU-KOY" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="PL2-2S-5LJ"/>
+                            <constraint firstItem="9sK-xR-A8d" firstAttribute="top" secondItem="2Rj-yU-KOY" secondAttribute="bottom" constant="19" id="Qpa-Hn-Xhg"/>
+                            <constraint firstItem="2Rj-yU-KOY" firstAttribute="leading" secondItem="9sK-xR-A8d" secondAttribute="leading" id="YoV-2W-5Cr"/>
+                            <constraint firstItem="2Rj-yU-KOY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="o4U-to-Xw2"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageViewA" destination="k6i-oy-ItM" id="2Nd-eF-rM9"/>
+                        <outlet property="imageViewA" destination="2Rj-yU-KOY" id="KZx-Ay-6b6"/>
                         <outlet property="imageViewB" destination="9sK-xR-A8d" id="6IF-bt-EtB"/>
                     </connections>
                 </viewController>

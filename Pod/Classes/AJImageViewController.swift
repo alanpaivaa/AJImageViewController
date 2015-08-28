@@ -20,7 +20,7 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     var loadedPagesOffset = 1
     let sideOffset: CGFloat = 10.0
     
-    var dismissButtonImage: UIImage!
+    public var dismissButton: UIButton!
     var imageWidth: CGFloat!
     var originalImageCenter: CGPoint!
     private var firstPage: Int!
@@ -29,6 +29,14 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     private var itensCount = 0
     
     private var transition = AJAwesomeTransition()
+    
+    public var enableSingleTapToDismiss: Bool = false {
+        didSet {
+            for scroll in self.pages {
+                scroll?.enableSingleTapGesture(self.enableSingleTapToDismiss)
+            }
+        }
+    }
     
     public init(imageView: UIImageView, images: UIImage ...) {
         super.init(nibName: nil, bundle: nil)
@@ -172,19 +180,15 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
         let buttonSize: CGFloat = 44.0
         let buttonOffset: CGFloat = 5.0
         let buttonInset: CGFloat = 12.0
-        let button = UIButton(frame: CGRect(x: buttonOffset, y: buttonOffset, width: buttonSize, height: buttonSize))
-        button.contentEdgeInsets = UIEdgeInsets(top: buttonInset, left: buttonInset, bottom: buttonInset, right: buttonInset)
+        self.dismissButton = UIButton(frame: CGRect(x: buttonOffset, y: buttonOffset, width: buttonSize, height: buttonSize))
+        self.dismissButton.contentEdgeInsets = UIEdgeInsets(top: buttonInset, left: buttonInset, bottom: buttonInset, right: buttonInset)
         let podBundle = NSBundle(forClass: self.classForCoder)
         
-        if self.dismissButtonImage == nil {
-            if let bundlePath = podBundle.URLForResource("AJImageViewController", withExtension: "bundle"), bundle = NSBundle(URL: bundlePath), image = UIImage(named: "delete", inBundle: bundle, compatibleWithTraitCollection: nil) {
-                self.dismissButtonImage = image
-            }
+        if let bundlePath = podBundle.URLForResource("AJImageViewController", withExtension: "bundle"), bundle = NSBundle(URL: bundlePath), image = UIImage(named: "delete", inBundle: bundle, compatibleWithTraitCollection: nil) {
+            self.dismissButton.setImage(image, forState: UIControlState.Normal)
+            self.dismissButton.addTarget(self, action: Selector("dismissViewController"), forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(self.dismissButton)
         }
-        
-        button.setImage(self.dismissButtonImage, forState: UIControlState.Normal)
-        button.addTarget(self, action: Selector("dismissViewController"), forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(button)
     }
     
     func dismissViewController() -> Void {

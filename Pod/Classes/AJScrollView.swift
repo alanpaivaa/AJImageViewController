@@ -21,6 +21,9 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
     var panStarted = false
     var superScroll: UIScrollView?
     
+    private var tapGesture: UITapGestureRecognizer!
+    private var doubleTapGesture: UITapGestureRecognizer!
+    
     init(frame: CGRect, image: UIImage) {
         super.init(frame: frame)
         self.showLoadIndicator()
@@ -28,6 +31,7 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         self.imageView.alpha = 0
         self.setupViewAttrs()
         self.setupDoubleTapGesture()
+        self.setupSingleTapGesture()
         self.delegate = self
         self.zoom(toScale: self.minScale, animated: false)
         self.centerImageView()
@@ -104,6 +108,7 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         
         //Adding image
         self.addSubview(self.imageView)
+        
     }
     
     private func zoom(toScale scale: CGFloat, animated: Bool) -> Void {
@@ -133,12 +138,33 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         self.imageView.frame = contentFrame
     }
     
+    func setupSingleTapGesture() -> Void {
+        self.tapGesture = UITapGestureRecognizer(target: self, action: Selector("viewDidTap:"))
+        self.tapGesture.numberOfTouchesRequired = 1
+        self.tapGesture.numberOfTapsRequired = 1
+        self.tapGesture.requireGestureRecognizerToFail(self.doubleTapGesture)
+    }
+    
+    func viewDidTap(tapGesture: UITapGestureRecognizer) -> Void {
+        if !CGRectContainsPoint(self.imageView.frame, tapGesture.locationInView(self)) && self.minScale == self.zoomScale {
+            self.dismissBlock?()
+        }
+    }
+    
+    func enableSingleTapGesture(enable: Bool) -> Void {
+        if enable {
+            self.addGestureRecognizer(self.tapGesture)
+        } else {
+            self.imageView.removeGestureRecognizer(self.tapGesture)
+        }
+    }
+    
     private func setupDoubleTapGesture() -> Void {
-        var doubleTapGesture = UITapGestureRecognizer(target: self, action: Selector("doubleTapScrollView:"))
-        doubleTapGesture.numberOfTapsRequired = 2
-        doubleTapGesture.numberOfTouchesRequired = 1
+        self.doubleTapGesture = UITapGestureRecognizer(target: self, action: Selector("doubleTapScrollView:"))
+        self.doubleTapGesture.numberOfTapsRequired = 2
+        self.doubleTapGesture.numberOfTouchesRequired = 1
         self.imageView.userInteractionEnabled = true
-        self.imageView.addGestureRecognizer(doubleTapGesture)
+        self.imageView.addGestureRecognizer(self.doubleTapGesture)
     }
     
     private func setupImageTapGesture() -> Void {

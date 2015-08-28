@@ -34,8 +34,10 @@ class ViewController: UIViewController {
     }
     
     func presentSingleImageViewController(gesture: UITapGestureRecognizer) -> Void {
-        let singleImageController = AJSingleImageViewController(imageView: self.imageViewA)
-        self.presentViewController(singleImageController, animated: true, completion: nil)
+        var imageViewController = AJImageViewController(imageView: self.imageViewA, images: UIImage(named: "image4")!)
+        imageViewController.dismissButton.hidden = true
+        imageViewController.enableSingleTapToDismiss = true
+        self.presentViewController(imageViewController, animated: true, completion: nil)
     }
     
     func presentImageViewController(gesture: UITapGestureRecognizer) -> Void {
