@@ -136,6 +136,7 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
                 
                 
                 insideScroll.dismissBlock = self.dismissViewController
+                insideScroll.showDissmissButtonBlock = self.showDismissButton
                 insideScroll.superScroll = self.scrollView
                 insideScroll.tag = page
                 
@@ -198,6 +199,17 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
             self.transition.dismissalType = AJImageViewDismissalType.DisappearBottom
         }
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    /** Hides/Shows the dismiss button */
+    func showDismissButton(show: Bool) -> Void {
+        if self.dismissButton.hidden != !show {
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.dismissButton.alpha = show ? 1.0 : 0.0
+                }) { (_) -> Void in
+                    self.dismissButton.hidden = !show
+            }
+        }
     }
     
     override public func prefersStatusBarHidden() -> Bool {

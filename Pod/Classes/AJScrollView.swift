@@ -16,6 +16,7 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
     var fadeDuration: NSTimeInterval = 0.3
     var delta = CGPoint(x: 0, y: 0)
     var dismissBlock: (() -> Void)?
+    var showDissmissButtonBlock: ((Bool) -> Void)?
     var imagePanOffset: CGFloat = 60.0
     var imageBackToCenterAnimationTime: NSTimeInterval = 0.3
     var panStarted = false
@@ -233,6 +234,7 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         self.superScroll?.scrollEnabled = self.minScale == self.zoomScale
         self.superScroll?.bounces = self.minScale == self.zoomScale
         self.bounces = self.minScale == self.zoomScale
+        self.showDissmissButtonBlock?(self.zoomScale == self.minScale)
     }
     
     //MARK:- Gesture reconizer delegate
