@@ -10,18 +10,22 @@ import UIKit
 
 class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
-    var duration: NSTimeInterval = 0.6
-    private let kDumping: CGFloat = 0.8
     private var originalImageView: UIImageView!
-    var presenting = true
     var referenceImageView: UIImageView!
-    var imageWidth: CGFloat!
+    
     var shouldBounce: Bool = true
     var shouldRotate: Bool = false
+    var presenting = true
+    
+    var duration: NSTimeInterval = 0.6
+    private let kDumping: CGFloat = 0.8
+    var rotation: CGFloat?
+    var imageWidth: CGFloat!
+    
     private var destinationPoint: CGPoint!
     private var originalImageCenter: CGPoint!
+    
     var dismissalType = AJImageViewDismissalType.OriginalImage
-    var rotation: CGFloat?
     
     func showOriginalImage(show: Bool) -> Void {
         self.originalImageView.hidden = !show

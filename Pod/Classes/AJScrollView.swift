@@ -10,21 +10,28 @@ import UIKit
 
 class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDelegate {
     
+    //Holder scrollView
+    var superScroll: UIScrollView?
+    
     var imageView: UIImageView!
-    var minScale: CGFloat!
     var loadIndicator: UIActivityIndicatorView!
-    var fadeDuration: NSTimeInterval = 0.3
+    
+    var panStarted = false
+    
+    var minScale: CGFloat!
     var delta = CGPoint(x: 0, y: 0)
+    var imagePanOffset: CGFloat = 60.0
+    var fadeDuration: NSTimeInterval = 0.3
+    var imageBackToCenterAnimationTime: NSTimeInterval = 0.3
+    
+    //Blocks
     var dismissBlock: (() -> Void)?
     var showDissmissButtonBlock: ((Bool) -> Void)?
-    var imagePanOffset: CGFloat = 60.0
-    var imageBackToCenterAnimationTime: NSTimeInterval = 0.3
-    var panStarted = false
-    var superScroll: UIScrollView?
     
     private var tapGesture: UITapGestureRecognizer!
     private var doubleTapGesture: UITapGestureRecognizer!
     
+    //MARK:- Init
     init(frame: CGRect, image: UIImage) {
         super.init(frame: frame)
         self.showLoadIndicator()
@@ -37,7 +44,7 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         self.zoom(toScale: self.minScale, animated: false)
         self.centerImageView()
         self.showImageView()
-        self.setupImageTapGesture()
+        self.setupImagePanGesture()
     }
     
     init(frame: CGRect, url: NSURL) {
@@ -50,12 +57,16 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK:- View methods
+    
+    /** Shows the load indicator */
     private func showLoadIndicator() -> Void {
         self.loadIndicator = UIActivityIndicatorView(frame: CGRect(origin: self.bounds.origin, size: self.bounds.size))
         self.loadIndicator.startAnimating()
         self.addSubview(self.loadIndicator)
     }
     
+    /** Hides the load indicator (used when finishing loading image) */
     private func hideLoadIndicator() -> Void {
         self.loadIndicator.hidden = true
         self.loadIndicator.stopAnimating()
@@ -63,6 +74,7 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         self.loadIndicator = nil
     }
     
+    /** Do all the necessay work for when a image has finished loading */
     private func showImageView() -> Void {
         UIView.animateWithDuration(self.fadeDuration, animations: { () -> Void in
             self.loadIndicator.alpha = 0
@@ -72,6 +84,7 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         }
     }
     
+    /** Loads a image with the given NSURL */
     private func loadImageFrom(#url: NSURL) -> Void {
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
         dispatch_async(queue, { () -> Void in
@@ -92,6 +105,7 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         })
     }
     
+    /** Inits all the necessary views with the default values */
     private func setupViewAttrs() -> Void {
         //Indicators and content size
         self.showsHorizontalScrollIndicator =  false
@@ -112,33 +126,9 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         
     }
     
-    private func zoom(toScale scale: CGFloat, animated: Bool) -> Void {
-        let scrollViewSize = self.bounds.size
-        let w = scrollViewSize.width / scale
-        let h = scrollViewSize.height / scale
-        let rectToZoom = CGRect(x: 0.0, y: 0.0, width: w, height: h)
-        self.zoomToRect(rectToZoom, animated: animated)
-    }
+    //MARK:- Gesture Reconizers methods
     
-    private func centerImageView() -> Void {
-        let boundsSize = self.bounds.size
-        var contentFrame = self.imageView.frame
-        
-        if contentFrame.size.width < boundsSize.width {
-            contentFrame.origin.x = (boundsSize.width - contentFrame.size.width) / 2.0
-        } else {
-            contentFrame.origin.x = 0.0
-        }
-        
-        if contentFrame.size.height < boundsSize.height {
-            contentFrame.origin.y = (boundsSize.height - contentFrame.size.height) / 2.0
-        } else {
-            contentFrame.origin.y = 0.0
-        }
-        
-        self.imageView.frame = contentFrame
-    }
-    
+    /** Setups the scroll view to handle single tap gesture. (Work along the double tap) */
     func setupSingleTapGesture() -> Void {
         self.tapGesture = UITapGestureRecognizer(target: self, action: Selector("viewDidTap:"))
         self.tapGesture.numberOfTouchesRequired = 1
@@ -146,12 +136,14 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         self.tapGesture.requireGestureRecognizerToFail(self.doubleTapGesture)
     }
     
+    /** Selector for the single tap gesture. Dismiss the current view controller by calling the dismiss block */
     func viewDidTap(tapGesture: UITapGestureRecognizer) -> Void {
         if !CGRectContainsPoint(self.imageView.frame, tapGesture.locationInView(self)) && self.minScale == self.zoomScale {
             self.dismissBlock?()
         }
     }
     
+    /** Adds/Remove the single tap gesture */
     func enableSingleTapGesture(enable: Bool) -> Void {
         if enable {
             self.addGestureRecognizer(self.tapGesture)
@@ -160,6 +152,7 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         }
     }
     
+    /** Inits and setup the double tap gesture recognizer */
     private func setupDoubleTapGesture() -> Void {
         self.doubleTapGesture = UITapGestureRecognizer(target: self, action: Selector("doubleTapScrollView:"))
         self.doubleTapGesture.numberOfTapsRequired = 2
@@ -168,13 +161,15 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         self.imageView.addGestureRecognizer(self.doubleTapGesture)
     }
     
-    private func setupImageTapGesture() -> Void {
+    /** Adds the pan gesture to the image. Therefore allowing the image to pan when zoomed */
+    private func setupImagePanGesture() -> Void {
         let panGesture = UIPanGestureRecognizer(target: self, action: Selector("imageDidPan:"))
         panGesture.delegate = self
         self.imageView.userInteractionEnabled = true
         self.imageView.addGestureRecognizer(panGesture)
     }
     
+    /** Selector for when the pan gesture occurs on the image */
     func imageDidPan(panGesture: UIPanGestureRecognizer) -> Void {
         if self.minScale == self.zoomScale {
             let point = panGesture.locationInView(self)
@@ -202,6 +197,7 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         }
     }
     
+    /** Selector for when a double tap gesture occurs on the scroll view */
     func doubleTapScrollView(tapGesture: UITapGestureRecognizer) -> Void {
         let pointInView = tapGesture.locationInView(self.imageView)
         
@@ -216,6 +212,37 @@ class AJScrollView: UIScrollView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         
         let rectToZoom = CGRect(x: x, y: y, width: w, height: h)
         self.zoomToRect(rectToZoom, animated: true)
+    }
+    
+    //MARK:- Zoom methods
+    
+    /** Zooms the scrollView to the given scale */
+    private func zoom(toScale scale: CGFloat, animated: Bool) -> Void {
+        let scrollViewSize = self.bounds.size
+        let w = scrollViewSize.width / scale
+        let h = scrollViewSize.height / scale
+        let rectToZoom = CGRect(x: 0.0, y: 0.0, width: w, height: h)
+        self.zoomToRect(rectToZoom, animated: animated)
+    }
+    
+    /** Centers the imageView on the screen. Used after zooming */
+    private func centerImageView() -> Void {
+        let boundsSize = self.bounds.size
+        var contentFrame = self.imageView.frame
+        
+        if contentFrame.size.width < boundsSize.width {
+            contentFrame.origin.x = (boundsSize.width - contentFrame.size.width) / 2.0
+        } else {
+            contentFrame.origin.x = 0.0
+        }
+        
+        if contentFrame.size.height < boundsSize.height {
+            contentFrame.origin.y = (boundsSize.height - contentFrame.size.height) / 2.0
+        } else {
+            contentFrame.origin.y = 0.0
+        }
+        
+        self.imageView.frame = contentFrame
     }
     
     //MARK:- ScrollView Delegate
