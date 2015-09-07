@@ -35,22 +35,42 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
         return self.duration
     }
     
+    /** Converts the given point from the fromView coordinate system to the toView coordinate system */
+    func convert(#point: CGPoint, fromView: UIView, toView: UIView) -> CGPoint {
+        return fromView.superview!.convertPoint(point, toView: toView)
+    }
+    
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        
+        //Keeps a reference to the image view from the first view controller
+        self.originalImageView = self.originalImageView ?? self.referenceImageView
         
         let containerView = transitionContext.containerView()
         
         //Setups the image view which holds the scale and move animations
         var imageView = UIImageView(frame: self.referenceImageView.frame)
         imageView.image = self.referenceImageView.image
-        imageView.contentMode = self.referenceImageView.contentMode
-        imageView.layer.cornerRadius = self.referenceImageView.layer.cornerRadius
-        imageView.clipsToBounds = self.referenceImageView.clipsToBounds
+        imageView.contentMode = self.originalImageView.contentMode
+        imageView.clipsToBounds = true
         
-        //Keeps a reference to the image view from the first view controller
-        self.originalImageView = self.originalImageView ?? self.referenceImageView
+//        if self.presenting {
+//            imageView.layer.borderColor = self.referenceImageView.layer.borderColor
+//            imageView.layer.borderWidth = self.referenceImageView.layer.borderWidth
+//        } else {
+//            imageView.layer.borderColor = self.originalImageView.layer.borderColor
+//            imageView.layer.borderWidth = 2.0*self.originalImageView.layer.borderWidth
+//        }
         
         //Factor to scale the animating image
-        var factor = self.imageWidth / imageView.frame.size.width
+        var size: CGSize!
+        var factor: CGFloat!
+        
+        if self.presenting {
+            size = self.referenceImageView.image!.size
+            factor = size.width / size.height
+        } else {
+            size = self.originalImageView.frame.size
+        }
         
         if let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey), toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) {
             
@@ -61,7 +81,7 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
             } else {
                 //If user did not chang page image after dismissing
                 if self.dismissalType == AJImageViewDismissalType.OriginalImage {
-                    self.destinationPoint = self.originalImageCenter
+                    self.destinationPoint = self.convert(point: self.originalImageCenter, fromView: self.originalImageView, toView: containerView)
                 } else {
                     //Otherwise
                     self.destinationPoint.x = self.referenceImageView.center.x
@@ -84,6 +104,8 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
                 //If the destination view controller is AJImageViewController
                 containerView.addSubview(alphaView)
                 self.referenceImageView.hidden = true
+                let newOrigin = self.convert(point: self.referenceImageView.frame.origin, fromView: self.referenceImageView, toView: containerView)
+                imageView.frame.origin = newOrigin
                 containerView.addSubview(imageView)
             } else {
                 //If back to the first View Controller
@@ -93,8 +115,27 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
                 containerView.addSubview(imageView)
             }
             
-            UIView.animateWithDuration(self.duration, delay: 0, usingSpringWithDamping: (self.shouldBounce ? self.kDumping : 1.0), initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-                imageView.transform = CGAffineTransformMakeScale(factor, factor)
+            //Animating the corner radius
+            let animation = CABasicAnimation(keyPath: "cornerRadius")
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            animation.fromValue = self.presenting ? self.referenceImageView.layer.cornerRadius : 0.0
+            animation.toValue = self.presenting ? 0.0 : self.originalImageView.layer.cornerRadius
+            animation.duration = self.duration
+            imageView.layer.cornerRadius = self.presenting ? 0.0 : self.originalImageView.layer.cornerRadius
+            imageView.layer.addAnimation(animation, forKey: "cornerRadius")
+            
+            let animationBorder = CABasicAnimation(keyPath: "borderColor")
+            animationBorder.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            animationBorder.fromValue = self.presenting ? self.referenceImageView.layer.borderColor : UIColor.clearColor().CGColor
+            animationBorder.toValue = self.presenting ? UIColor.clearColor().CGColor : self.originalImageView.layer.borderColor
+            animationBorder.duration = self.duration/4
+            imageView.layer.borderColor = self.presenting ? UIColor.clearColor().CGColor : self.originalImageView.layer.borderColor
+            imageView.layer.addAnimation(animationBorder, forKey: "borderColor")
+            
+            
+            UIView.animateWithDuration(self.duration, delay: 0, usingSpringWithDamping: (self.shouldBounce ? self.kDumping : 1.0), initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                imageView.frame.size.width = self.presenting ? containerView.frame.size.width : size.width
+                imageView.frame.size.height = self.presenting ? (containerView.frame.size.width / factor) : size.height
                 if let rotation = self.rotation {
                     imageView.transform = CGAffineTransformMakeRotation(rotation)
                 }
@@ -108,11 +149,11 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
                     alphaView.removeFromSuperview()
                     imageView.removeFromSuperview()
                     containerView.addSubview(toViewController.view)
-                    transitionContext.completeTransition(true)
                     if !self.presenting {
                         UIApplication.sharedApplication().keyWindow?.addSubview(toViewController.view)
                     }
                     self.presenting = !self.presenting
+                    transitionContext.completeTransition(true)
             }
             
         }

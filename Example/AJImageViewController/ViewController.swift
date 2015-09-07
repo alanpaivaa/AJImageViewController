@@ -16,7 +16,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupImageViewA()
         self.setupGestureRecognizers()
+    }
+    
+    func setupImageViewA() -> Void {
+//        self.imageViewA.clipsToBounds = true
+//        self.imageViewA.layer.cornerRadius = self.imageViewA.frame.width/2
+//        self.imageViewA.layer.borderWidth = 2.0
+//        self.imageViewA.layer.borderColor = UIColor.redColor().CGColor
     }
     
     func setupGestureRecognizers() -> Void {
