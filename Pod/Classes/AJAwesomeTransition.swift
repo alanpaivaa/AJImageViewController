@@ -52,14 +52,7 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
         imageView.image = self.referenceImageView.image
         imageView.contentMode = self.originalImageView.contentMode
         imageView.clipsToBounds = true
-        
-//        if self.presenting {
-//            imageView.layer.borderColor = self.referenceImageView.layer.borderColor
-//            imageView.layer.borderWidth = self.referenceImageView.layer.borderWidth
-//        } else {
-//            imageView.layer.borderColor = self.originalImageView.layer.borderColor
-//            imageView.layer.borderWidth = 2.0*self.originalImageView.layer.borderWidth
-//        }
+        imageView.layer.borderWidth = self.originalImageView.layer.borderWidth
         
         //Factor to scale the animating image
         var size: CGSize!
@@ -120,7 +113,7 @@ class AJAwesomeTransition: NSObject, UIViewControllerAnimatedTransitioning {
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             animation.fromValue = self.presenting ? self.referenceImageView.layer.cornerRadius : 0.0
             animation.toValue = self.presenting ? 0.0 : self.originalImageView.layer.cornerRadius
-            animation.duration = self.duration
+            animation.duration = self.duration/2
             imageView.layer.cornerRadius = self.presenting ? 0.0 : self.originalImageView.layer.cornerRadius
             imageView.layer.addAnimation(animation, forKey: "cornerRadius")
             
