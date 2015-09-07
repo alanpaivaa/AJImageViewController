@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var imageViewA: UIImageView!
     @IBOutlet weak var imageViewB: UIImageView!
+    @IBOutlet weak var imageViewC: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class ViewController: UIViewController {
     }
     
     func setupGestureRecognizers() -> Void {
-        let tapA = UITapGestureRecognizer(target: self, action: Selector("presentSingleImageViewController:"))
+        let tapA = UITapGestureRecognizer(target: self, action: Selector("presentSingleImageViewControllerA:"))
         tapA.numberOfTapsRequired = 1
         tapA.numberOfTouchesRequired = 1
         self.imageViewA.userInteractionEnabled = true
@@ -39,9 +40,15 @@ class ViewController: UIViewController {
         tapB.numberOfTouchesRequired = 1
         self.imageViewB.userInteractionEnabled = true
         self.imageViewB.addGestureRecognizer(tapB)
+        
+        let tapC = UITapGestureRecognizer(target: self, action: Selector("presentSingleImageViewControllerC:"))
+        tapC.numberOfTapsRequired = 1
+        tapC.numberOfTouchesRequired = 1
+        self.imageViewC.userInteractionEnabled = true
+        self.imageViewC.addGestureRecognizer(tapC)
     }
     
-    func presentSingleImageViewController(gesture: UITapGestureRecognizer) -> Void {
+    func presentSingleImageViewControllerA(gesture: UITapGestureRecognizer) -> Void {
         var imageViewController = AJImageViewController(imageView: self.imageViewA, images: UIImage(named: "image4")!)
         imageViewController.dismissButton.hidden = true
         imageViewController.enableSingleTapToDismiss = true
@@ -50,6 +57,13 @@ class ViewController: UIViewController {
     
     func presentImageViewController(gesture: UITapGestureRecognizer) -> Void {
         let imageViewController = AJImageViewController(imageView: self.imageViewB, images: UIImage(named: "image1")!, UIImage(named: "image2")!, UIImage(named: "image3")!, UIImage(named: "image4")!)
+        self.presentViewController(imageViewController, animated: true, completion: nil)
+    }
+    
+    func presentSingleImageViewControllerC(gesture: UITapGestureRecognizer) -> Void {
+        var imageViewController = AJImageViewController(imageView: self.imageViewC, images: self.imageViewC.image!)
+        imageViewController.dismissButton.hidden = true
+        imageViewController.enableSingleTapToDismiss = true
         self.presentViewController(imageViewController, animated: true, completion: nil)
     }
     

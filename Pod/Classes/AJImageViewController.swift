@@ -201,7 +201,7 @@ public class AJImageViewController: UIViewController, UIScrollViewDelegate, UIVi
     
     /** Hides/Shows the dismiss button */
     func showDismissButton(show: Bool) -> Void {
-        if self.dismissButton.hidden != !show {
+        if self.dismissButton.hidden != !show && !self.enableSingleTapToDismiss {
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.dismissButton.alpha = show ? 1.0 : 0.0
                 }) { (_) -> Void in
